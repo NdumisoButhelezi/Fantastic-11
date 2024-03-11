@@ -6,6 +6,11 @@ from app.models import FinancialAid, StudentRequest, User
 from app.forms import DonorFeedbackForm, FinancialAidForm, LoginForm, RegistrationForm, SearchForm
 from app.utils import requires_roles
 
+
+@app.route('/role_selection')
+def role_selection():
+    return render_template('role_selection.html')
+
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     form = LoginForm()
@@ -35,9 +40,6 @@ def logout():
     logout_user()
     return redirect(url_for('role_selection'))
 
-@app.route('/role_selection')
-def role_selection():
-    return render_template('role_selection.html')
 #admin side_____________________________________________________________________________-------------------------------------------
 @app.route('/admin/dashboard')
 @login_required
