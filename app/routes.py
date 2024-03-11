@@ -7,6 +7,7 @@ from app.forms import DonorFeedbackForm, FinancialAidForm, LoginForm, Registrati
 from app.utils import requires_roles
 
 
+
 @app.route('/role_selection')
 def role_selection():
     return render_template('role_selection.html')
@@ -47,7 +48,7 @@ def logout():
 def admin_dashboard():
     financial_aids = FinancialAidForm.query.all()
     return render_template('admin/dashboard.html', financial_aids=financial_aids)
-@app.route('/admin/financial_aid/new', methods=['GET', 'POST'])
+
 
 @app.route('/admin/financial_aid/new', methods=['GET', 'POST'])
 @login_required
@@ -128,7 +129,7 @@ def search():
 @requires_roles('student')
 def student_dashboard():
     # Fetch requests related to the logged-in student, including donor feedback if approved
-    return render_template('student/dashboard.html', requests=requests)
+    return render_template('student/dashboard.html', requests=StudentRequest)
 
 #donor ___________________________________-----------------------------
 @app.route('/donor/dashboard')
