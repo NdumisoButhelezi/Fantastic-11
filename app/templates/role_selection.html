@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}Select Your Role{% endblock %}
+
+{% block content %}
+<div class="text-center">
+    <h2 class="mb-4">Select Your Role</h2>
+    <div class="row justify-content-center">
+        <div class="col-md-4 mb-3">
+            <a href="{{ url_for('register', role='student') }}" class="btn btn-lg btn-outline-primary btn-block">
+                <i class="fas fa-user-graduate"></i> Student
+            </a>
+        </div>
+        <div class="col-md-4 mb-3">
+            <a href="{{ url_for('register', role='admin') }}" class="btn btn-lg btn-outline-success btn-block">
+                <i class="fas fa-user-tie"></i> Admin
+            </a>
+        </div>
+        <div class="col-md-4 mb-3">
+            <a href="{{ url_for('register', role='donor') }}" class="btn btn-lg btn-outline-warning btn-block">
+                <i class="fas fa-hand-holding-heart"></i> Donor
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
