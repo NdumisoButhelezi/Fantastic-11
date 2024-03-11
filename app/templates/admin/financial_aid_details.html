@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-3">
+    <h2>{{ financial_aid.title }}</h2>
+    <p><strong>Description:</strong> {{ financial_aid.description }}</p>
+    <p><strong>Eligibility:</strong> {{ financial_aid.eligibility }}</p>
+    <p><strong>Deadline:</strong> {{ financial_aid.deadline.strftime('%Y-%m-%d %H:%M') }}</p>
+    <!-- Add more details as necessary -->
+</div>
+{% endblock %}
