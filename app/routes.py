@@ -6,8 +6,6 @@ from app.models import FinancialAid, StudentRequest, User
 from app.forms import DonorFeedbackForm, FinancialAidForm, LoginForm, RegistrationForm, SearchForm
 from app.utils import requires_roles
 
-
-
 @app.route('/role_selection')
 def role_selection():
     return render_template('role_selection.html')

@@ -1,21 +1,15 @@
+<!-- Inside student/dashboard.html -->
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="container mt-4">
-    <h2>Your Funding Requests</h2>
+<div class="container">
+    <h2>Your Requests</h2>
     {% for request in requests %}
-        <div class="card mb-3">
-            <div class="card-body">
-                <h5 class="card-title">Request: {{ request.id }}</h5>
-                <p class="card-text">{{ request.description }}</p>
-                <p>Status: {{ request.status }}</p>
-                {% if request.donor_feedback %}
-                    <p>Donor Feedback: {{ request.donor_feedback }}</p>
-                {% endif %}
-            </div>
+        <div>
+            <!-- Display details of each request -->
+            <p>{{ request.description }}</p>
+            <p>Status: {{ request.status }}</p>
         </div>
-    {% else %}
-        <p>You have not made any funding requests.</p>
     {% endfor %}
 </div>
 {% endblock %}
