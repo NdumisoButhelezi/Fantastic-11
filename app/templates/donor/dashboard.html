@@ -1,0 +1,7 @@
+{% for request in student_requests %}
+<li class="list-group-item">
+    {{ request.description }}
+    <a href="{{ url_for('approve_request', request_id=request.id) }}" class="btn btn-success">Approve</a>
+    <a href="{{ url_for('reject_request', request_id=request.id) }}" class="btn btn-danger">Reject</a>
+</li>
+{% endfor %}

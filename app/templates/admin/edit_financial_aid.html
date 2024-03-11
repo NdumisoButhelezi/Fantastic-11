@@ -1,0 +1,34 @@
+{% extends 'admin/base.html' %}  <!-- or just 'base.html', depending on your setup -->
+
+{% block content %}
+<div class="container mt-5">
+    <h2>Edit Financial Aid</h2>
+    <form action="" method="post">
+        {{ form.hidden_tag() }}
+        <div class="form-group">
+            {{ form.title.label(class="form-control-label") }}
+            {{ form.title(class="form-control") }}
+        </div>
+        <div class="form-group">
+            {{ form.description.label(class="form-control-label") }}
+            {{ form.description(class="form-control") }}
+        </div>
+        <div class="form-group">
+            {{ form.eligibility.label(class="form-control-label") }}
+            {{ form.eligibility(class="form-control") }}
+        </div>
+        <div class="form-group">
+            {{ form.deadline.label(class="form-control-label") }}
+            {{ form.deadline(class="form-control") }}
+        </div>
+        <div class="form-group">
+            {{ form.aid_type.label(class="form-control-label") }}
+            {{ form.aid_type(class="form-control") }}
+        </div>
+        <div class="form-group">
+            {{ form.submit(class="btn btn-success") }}
+        </div>
+    </form>
+</div>
+{% endblock %}
+

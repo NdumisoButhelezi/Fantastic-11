@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2>Search Financial Aids</h2>
+    <form method="POST" class="form-inline my-4 justify-content-center">
+        {{ form.hidden_tag() }}
+        {{ form.query(class="form-control mr-sm-2", placeholder="Enter keywords...") }}
+        {{ form.submit(class="btn btn-outline-success my-2 my-sm-0") }}
+    </form>
+    {% if financial_aids %}
+        {% for aid in financial_aids %}
+        <div class="card mb-3">
+            <div class="card-body">
+                <h5 class="card-title">{{ aid.title }}</h5>
+                <p class="card-text">{{ aid.description }}</p>
+                <!-- Add more details and an Apply button here -->
+            </div>
+        </div>
+        {% endfor %}
+    {% else %}
+        <p>No results found.</p>
+    {% endif %}
+</div>
+{% endblock %}

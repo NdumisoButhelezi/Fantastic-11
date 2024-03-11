@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Admin Dashboard</h2>
+<a href="{{ url_for('create_financial_aid') }}" class="btn btn-primary">Add New Financial Aid</a>
+
+<table class="table mt-3">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Eligibility</th>
+            <th>Deadline</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for aid in financial_aids %}
+        <tr>
+            <td>{{ aid.title }}</td>
+            <td>{{ aid.description }}</td>
+            <td>{{ aid.eligibility }}</td>
+            <td>{{ aid.deadline.strftime('%Y-%m-%d') }}</td>
+            <td>
+                <a href="{{ url_for('edit_financial_aid', aid_id=aid.id) }}" class="btn btn-sm btn-warning">Edit</a>
+                <a href="{{ url_for('delete_financial_aid', aid_id=aid.id) }}" class="btn btn-sm btn-danger">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
